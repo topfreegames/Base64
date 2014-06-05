@@ -31,7 +31,7 @@
 //
 
 #import "Base64.h"
-
+#import "objc/runtime.h"
 
 #pragma GCC diagnostic ignored "-Wselector"
 
