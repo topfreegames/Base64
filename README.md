@@ -1,3 +1,10 @@
+Forked from https://github.com/nicklockwood/Base64
+---------------------------------------------------
+
+This version of Base64-nl fixes a bug with Amazon's AWS framework when running on Jailbroken devices that cause a SerializationException when the device try to send data to AWS. 
+To use it you must include Base64.h in the AppDelegate class and put the call "[NSData hijack];" in your didFinishLaunchingWithOptions method.
+
+
 NOTE: As of iOS 7 and Mac OS 10.9, this library is not longer needed
 ----------------------------------------------------------------------
 

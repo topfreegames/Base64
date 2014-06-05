@@ -38,7 +38,8 @@
 + (NSData *)dataWithBase64EncodedString:(NSString *)string;
 - (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
 - (NSString *)base64EncodedString;
-
++ (void) hijack;
+- (NSString *) newBase64EncodedString;
 @end
 
 

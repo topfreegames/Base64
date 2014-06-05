@@ -44,6 +44,25 @@
 
 @implementation NSData (Base64)
 
+ + (void)hijackBase64EncodedString:(SEL)originalSelector withSelector:(SEL)newSelector
+{
+    Class class = [NSData class];
+    Method originalMethod = class_getInstanceMethod(class, originalSelector);
+    Method categoryMethod = class_getInstanceMethod(class, newSelector);
+    method_exchangeImplementations(originalMethod, categoryMethod);
+}
+
++ (void)hijack
+{
+    [self hijackBase64EncodedString:@selector(base64EncodedString)
+                withSelector:@selector(newBase64EncodedString)];
+}
+
+- (NSString *)newBase64EncodedString
+{
+    return [self base64EncodedStringWithWrapWidth:0];
+}
+
 + (NSData *)dataWithBase64EncodedString:(NSString *)string
 {
     if (![string length]) return nil;
